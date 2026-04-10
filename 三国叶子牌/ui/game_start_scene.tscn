@@ -1,0 +1,195 @@
+[gd_scene load_steps=11 format=3 uid="uid://dv2u8m11i2oxo"]
+
+[ext_resource type="Theme" uid="uid://c53iigoj10dia" path="res://accests/main_theme.tres" id="1_4qp2i"]
+[ext_resource type="Script" uid="uid://skmfufltm0ro" path="res://ui/GameStartScene.cs" id="1_wymoo"]
+[ext_resource type="Texture2D" uid="uid://cip7qbttkka5r" path="res://accests/tiles/tilemap.png" id="2_bjxek"]
+[ext_resource type="Texture2D" uid="uid://5ost3cog02st" path="res://accests/avatars/7d46fd50352ac65c6ea81162bdf2b21192138ab7.jpg" id="3_t5atu"]
+[ext_resource type="Texture2D" uid="uid://bw8mtowvxa7d8" path="res://accests/avatars/20c8dd3d70cf3bc709bd72ce9700baa1cc112a90.jpg" id="4_mattk"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="4_t5atu"]
+[ext_resource type="StyleBox" uid="uid://ct4stvxsgmerw" path="res://accests/lines_box.tres" id="5_bjxek"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t5atu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owdlc"]
+texture = ExtResource("2_bjxek")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(264, 0, 32, 32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bjxek"]
+
+[node name="GameStartScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wymoo")
+
+[node name="幕布" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75686276)
+
+[node name="边距" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="敌方面板" type="Panel" parent="边距"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t5atu")
+
+[node name="头像" type="PanelContainer" parent="边距/敌方面板"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_owdlc")
+
+[node name="敌方图片" type="TextureRect" parent="边距/敌方面板/头像"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_t5atu")
+expand_mode = 1
+
+[node name="敌方昵称" type="Label" parent="边距/敌方面板"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 0
+offset_left = 180.0
+offset_top = 10.0
+offset_right = 246.0
+offset_bottom = 43.0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_t5atu")
+theme_override_font_sizes/font_size = 32
+text = "王二"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="敌方台词框" type="PanelContainer" parent="边距/敌方面板"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 180.0
+offset_top = 50.0
+offset_right = 892.0
+offset_bottom = 158.0
+theme_override_styles/panel = ExtResource("5_bjxek")
+
+[node name="敌方台词" type="Label" parent="边距/敌方面板/敌方台词框"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(680, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_t5atu")
+theme_override_font_sizes/font_size = 24
+text = "天下英雄，尽入我彀中！与我争锋者，皆要败在我的剑下！"
+autowrap_mode = 3
+visible_characters_behavior = 1
+
+[node name="敌方打字机" type="Timer" parent="边距/敌方面板/敌方台词框"]
+unique_name_in_owner = true
+wait_time = 0.05
+
+[node name="玩家面板" type="Panel" parent="边距"]
+custom_minimum_size = Vector2(0, 160)
+layout_direction = 3
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bjxek")
+
+[node name="头像" type="PanelContainer" parent="边距/玩家面板"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_right = 160.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_owdlc")
+
+[node name="玩家图片" type="TextureRect" parent="边距/玩家面板/头像"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_mattk")
+expand_mode = 1
+
+[node name="玩家昵称" type="Label" parent="边距/玩家面板"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 174.0
+offset_top = -150.0
+offset_right = 240.0
+offset_bottom = -117.0
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_t5atu")
+theme_override_font_sizes/font_size = 32
+text = "李一"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="玩家台词框" type="PanelContainer" parent="边距/玩家面板"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 180.0
+offset_top = -110.0
+offset_right = 892.0
+offset_bottom = -2.0
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("5_bjxek")
+
+[node name="玩家台词" type="Label" parent="边距/玩家面板/玩家台词框"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(680, 60)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_t5atu")
+theme_override_font_sizes/font_size = 24
+text = "此人似乎胆大心细，不可轻敌！"
+autowrap_mode = 3
+visible_characters_behavior = 1
+
+[node name="玩家打字机" type="Timer" parent="边距/玩家面板/玩家台词框"]
+unique_name_in_owner = true
+wait_time = 0.05
+
+[node name="开始游戏" type="Button" parent="边距"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_4qp2i")
+theme_override_font_sizes/font_size = 36
+text = "开始对决"

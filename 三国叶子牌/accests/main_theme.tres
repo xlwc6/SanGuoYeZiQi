@@ -1,0 +1,57 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://c53iigoj10dia"]
+
+[ext_resource type="Texture2D" uid="uid://cip7qbttkka5r" path="res://accests/tiles/tilemap.png" id="1_xg3w6"]
+[ext_resource type="Texture2D" uid="uid://cuigm3nlw3gjo" path="res://accests/tiles/tilemap_other.png" id="2_10msw"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="3_10msw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xg3w6"]
+texture = ExtResource("1_xg3w6")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(297, 33, 31, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_10msw"]
+texture = ExtResource("1_xg3w6")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(297, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10msw"]
+atlas = ExtResource("2_10msw")
+region = Rect2(187, 51, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a10xa"]
+atlas = ExtResource("2_10msw")
+region = Rect2(238, 0, 16, 16)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_10msw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a10xa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a10xa"]
+texture = ExtResource("2_10msw")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+region_rect = Rect2(21, 88, 8, 10)
+
+[resource]
+default_font = ExtResource("3_10msw")
+default_font_size = 12
+Button/colors/font_focus_color = Color(0.09803922, 0.09803922, 0.09803922, 0.5294118)
+Button/colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0.61960787)
+Button/styles/focus = SubResource("StyleBoxTexture_xg3w6")
+Button/styles/hover = SubResource("StyleBoxTexture_xg3w6")
+Button/styles/normal = SubResource("StyleBoxTexture_10msw")
+HSlider/icons/grabber = SubResource("AtlasTexture_10msw")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_a10xa")
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_10msw")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_a10xa")
+HSlider/styles/slider = SubResource("StyleBoxTexture_a10xa")

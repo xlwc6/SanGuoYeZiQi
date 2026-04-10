@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bol04wd5420uy"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_w3hii"]
+
+[resource]
+script = ExtResource("1_w3hii")
+Name = "关羽"
+Camp = 1
+Power = 96
+Wisdom = 68
+Skill = "武圣"
+SkillDesc = "当你战胜敌方武将时，明牌继续连战，输了直接销毁"
+Type = 2

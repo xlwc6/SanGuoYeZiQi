@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://csmrev74ovcq"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_7aybi"]
+
+[resource]
+script = ExtResource("1_7aybi")
+Name = "郭嘉"
+Camp = 2
+Power = 40
+Wisdom = 94
+Skill = "遗计"
+SkillDesc = "对战失败后，下一回合魏国牌武力值上升20"
+Type = 2

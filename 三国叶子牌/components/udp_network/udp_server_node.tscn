@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6c5n3qd8lvmn"]
+
+[ext_resource type="Script" uid="uid://qn4jjndi5w6i" path="res://components/udp_network/UdpServerNode.cs" id="1_va45u"]
+
+[node name="UDPServerNode" type="Node"]
+script = ExtResource("1_va45u")

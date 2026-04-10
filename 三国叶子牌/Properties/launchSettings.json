@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "三国叶子牌": {
+      "commandName": "Project"
+    },
+    "附加到Godot编辑器": {
+      "commandName": "Executable",
+      "executablePath": "D:\\Godot\\Godot_v4.5.1-stable_mono_win64\\Godot_v4.5.1-stable_mono_win64.exe",
+      "commandLineArgs": "--path . --verbose",
+      "workingDirectory": ".",
+      "nativeDebugging": true
+    }
+  }
+}

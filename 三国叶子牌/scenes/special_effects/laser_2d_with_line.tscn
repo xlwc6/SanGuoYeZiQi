@@ -1,0 +1,119 @@
+[gd_scene load_steps=18 format=3 uid="uid://cuwt88fmk4rbb"]
+
+[ext_resource type="Script" uid="uid://c2mwndl8yr7gg" path="res://scenes/special_effects/Laser2dWithLine.cs" id="1_q1sar"]
+[ext_resource type="Texture2D" uid="uid://cosumn5shbpy" path="res://accests/effects/impactbullet/glowing_circle.png" id="2_qwo7a"]
+
+[sub_resource type="Gradient" id="Gradient_qwo7a"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gtlmy"]
+gradient = SubResource("Gradient_qwo7a")
+width = 64
+
+[sub_resource type="Curve" id="Curve_qwo7a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gtlmy"]
+width = 648
+curve = SubResource("Curve_qwo7a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bftds"]
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_gtlmy")
+color_ramp = SubResource("GradientTexture1D_gtlmy")
+
+[sub_resource type="Gradient" id="Gradient_gtlmy"]
+offsets = PackedFloat32Array(0, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bftds"]
+gradient = SubResource("Gradient_gtlmy")
+
+[sub_resource type="Curve" id="Curve_f71yi"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.47727275, 0.97752815), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_1767n"]
+curve = SubResource("Curve_f71yi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_us8ox"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(680, 20, 1)
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_1767n")
+color_ramp = SubResource("GradientTexture1D_bftds")
+
+[sub_resource type="Gradient" id="Gradient_bftds"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f71yi"]
+gradient = SubResource("Gradient_bftds")
+width = 64
+
+[sub_resource type="Curve" id="Curve_gtlmy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4848485, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bftds"]
+width = 648
+curve = SubResource("Curve_gtlmy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f71yi"]
+particle_flag_disable_z = true
+spread = 50.0
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_bftds")
+color_ramp = SubResource("GradientTexture1D_f71yi")
+
+[node name="Laser2DWithLine" type="RayCast2D"]
+target_position = Vector2(1000, 0)
+script = ExtResource("1_q1sar")
+
+[node name="纹理线条" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 0, 1000, 0)
+width = 20.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="射线颗粒" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+texture = ExtResource("2_qwo7a")
+lifetime = 0.3
+visibility_rect = Rect2(0, -20, 30, 40)
+process_material = SubResource("ParticleProcessMaterial_bftds")
+
+[node name="光束颗粒" type="GPUParticles2D" parent="."]
+position = Vector2(680, 0)
+emitting = false
+amount = 50
+texture = ExtResource("2_qwo7a")
+preprocess = 1.0
+randomness = 1.0
+visibility_rect = Rect2(-1500, -1500, 3000, 3000)
+process_material = SubResource("ParticleProcessMaterial_us8ox")
+
+[node name="碰撞颗粒" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 16
+texture = ExtResource("2_qwo7a")
+lifetime = 0.3
+visibility_rect = Rect2(-1500, -1500, 3000, 3000)
+process_material = SubResource("ParticleProcessMaterial_f71yi")

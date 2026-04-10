@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtcgbqrp3g5sa"]
+
+[ext_resource type="Script" uid="uid://brek4hun1kk8a" path="res://scenes/card_pile/CardPile.cs" id="1_wiaxa"]
+
+[node name="CardPile" type="HBoxContainer"]
+clip_contents = true
+script = ExtResource("1_wiaxa")

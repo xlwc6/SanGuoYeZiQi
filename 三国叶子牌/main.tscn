@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqi8ndq8boa0w"]
+
+[ext_resource type="Script" uid="uid://chftx08wga8oy" path="res://Main.cs" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dh383f83xqtrt" path="res://accests/tiles/background.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://c8fnx8adavuym" path="res://accests/tiles/title.png" id="3_1bvp3"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://x3xmysr77ipi" path="res://ui/game_setting_scene.tscn" id="5_lquwl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1bvp3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.9230879, 0.7938655, 0.25157484, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+bg_color = Color(0.827451, 0.7490196, 0.56078434, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.5921569, 0.44313726, 0.2901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ig7tw")
+
+[node name="视觉层" type="CanvasLayer" parent="."]
+
+[node name="背景图" type="TextureRect" parent="视觉层"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0xm2m")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="标题页面" type="Control" parent="视觉层"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="图片标题" type="TextureRect" parent="视觉层/标题页面"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -362.0
+offset_top = 52.0
+offset_right = 378.0
+offset_bottom = 273.0
+grow_horizontal = 2
+texture = ExtResource("3_1bvp3")
+
+[node name="菜单" type="VBoxContainer" parent="视觉层/标题页面"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -38.5
+offset_right = 59.0
+offset_bottom = 257.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="开始游戏" type="Button" parent="视觉层/标题页面/菜单"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.9084268, 0.6645658, 0.41708872, 1)
+theme_override_fonts/font = ExtResource("4_lquwl")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1bvp3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+text = "开始游戏"
+
+[node name="联机对战" type="Button" parent="视觉层/标题页面/菜单"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.9084268, 0.6645658, 0.41708872, 1)
+theme_override_fonts/font = ExtResource("4_lquwl")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1bvp3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+text = "联机对战"
+
+[node name="游戏说明" type="Button" parent="视觉层/标题页面/菜单"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.9084268, 0.6645658, 0.41708872, 1)
+theme_override_fonts/font = ExtResource("4_lquwl")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1bvp3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+text = "游戏说明"
+
+[node name="游戏设置" type="Button" parent="视觉层/标题页面/菜单"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.9084268, 0.6645658, 0.41708872, 1)
+theme_override_fonts/font = ExtResource("4_lquwl")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1bvp3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+text = "游戏设置"
+
+[node name="退出游戏" type="Button" parent="视觉层/标题页面/菜单"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.9084268, 0.6645658, 0.41708872, 1)
+theme_override_fonts/font = ExtResource("4_lquwl")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1bvp3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+text = "退出游戏"
+
+[node name="游戏说明弹窗" type="PopupPanel" parent="视觉层"]
+unique_name_in_owner = true
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(800, 480)
+theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
+
+[node name="边距" type="MarginContainer" parent="视觉层/游戏说明弹窗"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 784.0
+offset_bottom = 464.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="文本标签" type="RichTextLabel" parent="视觉层/游戏说明弹窗/边距"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_lquwl")
+
+[node name="游戏设置页面" parent="视觉层" instance=ExtResource("5_lquwl")]
+unique_name_in_owner = true
+visible = false

@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://deuyq5hfymb8g"]
+
+[ext_resource type="Script" uid="uid://co8elnfg1ilci" path="res://scenes/tests/TestPage.cs" id="1_1olu6"]
+[ext_resource type="PackedScene" uid="uid://buv0aracijphm" path="res://ui/player_canvas_layer.tscn" id="1_5rnfh"]
+[ext_resource type="PackedScene" uid="uid://ffib6nkxsijp" path="res://ui/card_discard_scene.tscn" id="3_1olu6"]
+[ext_resource type="PackedScene" uid="uid://dqleo7q2a2b80" path="res://ui/enemy_canvas_layer.tscn" id="3_eknud"]
+[ext_resource type="PackedScene" uid="uid://dv2u8m11i2oxo" path="res://ui/game_start_scene.tscn" id="5_5m8qw"]
+[ext_resource type="PackedScene" uid="uid://dj8r7iweg3prp" path="res://components/ai/ai_compeonent.tscn" id="6_rbscv"]
+
+[node name="TestPage" type="Node"]
+script = ExtResource("1_1olu6")
+
+[node name="敌人AI" parent="." instance=ExtResource("6_rbscv")]
+
+[node name="敌方界面" parent="." instance=ExtResource("3_eknud")]
+offset_bottom = 210.0
+
+[node name="玩家界面" parent="." instance=ExtResource("1_5rnfh")]
+
+[node name="弃牌界面" parent="." instance=ExtResource("3_1olu6")]
+visible = false
+
+[node name="游戏开始" parent="." instance=ExtResource("5_5m8qw")]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -50.5
+offset_right = 36.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="发牌" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "发牌"
+
+[node name="弃牌" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "我要验牌"
+
+[node name="弹出" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "AI测试"

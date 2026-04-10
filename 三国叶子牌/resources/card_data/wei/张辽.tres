@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c6aq7wvha070h"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_we2xp"]
+
+[resource]
+script = ExtResource("1_we2xp")
+Name = "张辽"
+Camp = 2
+Power = 93
+Wisdom = 89
+Skill = "威震"
+SkillDesc = "你对智力低于你的吴国武将必胜"

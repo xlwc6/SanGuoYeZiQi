@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2tp07a3kknku"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_bnntk"]
+
+[resource]
+script = ExtResource("1_bnntk")
+Name = "张飞"
+Camp = 1
+Power = 98
+Wisdom = 38

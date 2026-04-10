@@ -1,0 +1,257 @@
+[gd_scene load_steps=16 format=3 uid="uid://c6cxoi46edett"]
+
+[ext_resource type="Theme" uid="uid://c53iigoj10dia" path="res://accests/main_theme.tres" id="1_5giai"]
+[ext_resource type="Script" uid="uid://dwx7twwiq08ku" path="res://ui/Card.cs" id="2_oiqpm"]
+[ext_resource type="StyleBox" uid="uid://c64hkilxway5q" path="res://resources/card_data/card_panel_qun.tres" id="3_oiqpm"]
+[ext_resource type="Script" uid="uid://dwugppeg8k24b" path="res://components/state_machine/StateMachine.cs" id="5_ltaug"]
+[ext_resource type="Texture2D" uid="uid://cd75fu6v0vr7h" path="res://accests/tiles/cardBacks.png" id="5_raxus"]
+[ext_resource type="Script" uid="uid://blk3pmpjbncdb" path="res://components/state_machine/card_state/CardNormalState.cs" id="6_rd5dq"]
+[ext_resource type="Script" uid="uid://c7s7rs2uxxir" path="res://components/state_machine/card_state/CardClickedState.cs" id="7_6g8na"]
+[ext_resource type="Script" uid="uid://cbrnlpvj5mj6g" path="res://components/state_machine/card_state/CardPlayedState.cs" id="8_raxus"]
+[ext_resource type="Script" uid="uid://cdbguggjrvcp3" path="res://components/state_machine/card_state/CardDiscardState.cs" id="9_1fvxc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1fvxc"]
+texture = ExtResource("5_raxus")
+region_rect = Rect2(0, 268, 96, 128)
+
+[sub_resource type="Animation" id="Animation_raxus"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("可视化:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("可视化:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1fvxc"]
+resource_name = "取消"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("可视化:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -30), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pf3i6"]
+resource_name = "向右攻击"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("可视化:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.4),
+"transitions": PackedFloat32Array(1, 0.25, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("可视化:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.4),
+"transitions": PackedFloat32Array(1, 0.25, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6g8na"]
+resource_name = "选择"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("可视化:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1fvxc"]
+_data = {
+&"RESET": SubResource("Animation_raxus"),
+&"取消": SubResource("Animation_1fvxc"),
+&"攻击": SubResource("Animation_pf3i6"),
+&"选择": SubResource("Animation_6g8na")
+}
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(130, 190)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 130.0
+offset_bottom = 190.0
+theme = ExtResource("1_5giai")
+script = ExtResource("2_oiqpm")
+
+[node name="可视化" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(130, 190)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="面板" type="Panel" parent="可视化"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_oiqpm")
+
+[node name="姓名" type="Label" parent="可视化/面板"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 32.0
+offset_bottom = 58.0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 16
+text = "李小二"
+autowrap_mode = 1
+
+[node name="阵容" type="Label" parent="可视化/面板"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -22.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 27.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 12
+text = "群"
+horizontal_alignment = 2
+
+[node name="技能" type="VBoxContainer" parent="可视化/面板"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -5.0
+offset_right = -10.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="技能名称" type="Label" parent="可视化/面板/技能"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "测试"
+
+[node name="技能描述" type="Label" parent="可视化/面板/技能"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "你为什么会看到这个呢你为什么会看到这个呢"
+autowrap_mode = 1
+
+[node name="属性" type="HBoxContainer" parent="可视化/面板"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -27.0
+offset_right = 95.0
+offset_bottom = -10.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="武力" type="Label" parent="可视化/面板/属性"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "武：99"
+
+[node name="智力" type="Label" parent="可视化/面板/属性"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "智：30"
+
+[node name="背面" type="Panel" parent="可视化"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1fvxc")
+
+[node name="幕布" type="ColorRect" parent="可视化"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="有限状态机" type="Node" parent="." node_paths=PackedStringArray("startingState")]
+script = ExtResource("5_ltaug")
+startingState = NodePath("CardNormalState")
+metadata/_custom_type_script = "uid://dwugppeg8k24b"
+
+[node name="CardNormalState" type="Node" parent="有限状态机"]
+script = ExtResource("6_rd5dq")
+metadata/_custom_type_script = "uid://bqdtfijbac1wg"
+
+[node name="CardClickedState" type="Node" parent="有限状态机"]
+script = ExtResource("7_6g8na")
+state = 1
+metadata/_custom_type_script = "uid://bqdtfijbac1wg"
+
+[node name="CardPlayedState" type="Node" parent="有限状态机"]
+script = ExtResource("8_raxus")
+state = 2
+metadata/_custom_type_script = "uid://bqdtfijbac1wg"
+
+[node name="CardDiscardState" type="Node" parent="有限状态机"]
+script = ExtResource("9_1fvxc")
+state = 3
+metadata/_custom_type_script = "uid://bqdtfijbac1wg"
+
+[node name="动画" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1fvxc")
+}

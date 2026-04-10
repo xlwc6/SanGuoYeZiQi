@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj8r7iweg3prp"]
+
+[ext_resource type="Script" uid="uid://crxh4mrpw48fl" path="res://components/ai/AiCompeonent.cs" id="1_kxiyp"]
+
+[node name="AiCompeonent" type="Node"]
+script = ExtResource("1_kxiyp")

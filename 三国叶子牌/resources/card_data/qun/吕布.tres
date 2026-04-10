@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dw8misik6vsnm"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_2aspj"]
+
+[resource]
+script = ExtResource("1_2aspj")
+Name = "吕布"
+Power = 99
+Wisdom = 30

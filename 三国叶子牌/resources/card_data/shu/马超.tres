@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bkklm26gbxete"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_evktt"]
+
+[resource]
+script = ExtResource("1_evktt")
+Name = "马超"
+Camp = 1
+Power = 97
+Wisdom = 50
+Skill = "铁骑"
+SkillDesc = "你对战魏国武将时，其武力下降10"

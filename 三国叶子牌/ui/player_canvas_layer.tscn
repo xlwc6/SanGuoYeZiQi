@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=3 uid="uid://buv0aracijphm"]
+
+[ext_resource type="Texture2D" uid="uid://cip7qbttkka5r" path="res://accests/tiles/tilemap.png" id="1_mph70"]
+[ext_resource type="PackedScene" uid="uid://y7jmxofchr88" path="res://components/manager/hand_manager.tscn" id="1_t8av0"]
+[ext_resource type="Script" uid="uid://d3hyjhw3jvkm5" path="res://ui/PlayerCanvasLayer.cs" id="1_u0g7o"]
+[ext_resource type="PackedScene" uid="uid://dtcgbqrp3g5sa" path="res://scenes/card_pile/card_pile.tscn" id="1_ueua6"]
+[ext_resource type="PackedScene" uid="uid://dty8n45tdc3dg" path="res://ui/heart.tscn" id="2_45qne"]
+[ext_resource type="StyleBox" uid="uid://eyrkti6qlgwq" path="res://accests/label_bg.tres" id="5_evsn0"]
+[ext_resource type="Texture2D" uid="uid://c6sdebqtgit47" path="res://accests/avatars/c60a2ddbb6fd5266836ae001ed18972bd50736a7.jpg" id="6_u0g7o"]
+[ext_resource type="PackedScene" uid="uid://p2po3mq4mtuq" path="res://ui/operation_bar.tscn" id="7_5xgoy"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="7_u0g7o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_45qne"]
+texture = ExtResource("1_mph70")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(264, 0, 32, 32)
+
+[node name="PlayerCanvasLayer" type="Control"]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_u0g7o")
+
+[node name="边距" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="活动区域" type="HBoxContainer" parent="边距"]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="CardPile" parent="边距/活动区域" node_paths=PackedStringArray("markPosition") groups=["player_discard_deck"] instance=ExtResource("1_ueua6")]
+layout_mode = 2
+size_flags_horizontal = 2
+ownerType = 1
+markPosition = NodePath("../../MarkerPile")
+
+[node name="HandManager" parent="边距/活动区域" node_paths=PackedStringArray("markPosition") groups=["player_deck"] instance=ExtResource("1_t8av0")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -60
+ownerType = 1
+markPosition = NodePath("../../MarkerHand")
+
+[node name="状态" type="VBoxContainer" parent="边距/活动区域"]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Heart" parent="边距/活动区域/状态" instance=ExtResource("2_45qne")]
+layout_mode = 2
+ownerType = 1
+
+[node name="头像" type="PanelContainer" parent="边距/活动区域/状态"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_45qne")
+
+[node name="图片" type="TextureRect" parent="边距/活动区域/状态/头像"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_u0g7o")
+expand_mode = 1
+
+[node name="昵称" type="Label" parent="边距/活动区域/状态/头像"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("7_u0g7o")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("5_evsn0")
+text = "李一"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarkerHand" type="Marker2D" parent="边距"]
+position = Vector2(857, 16)
+
+[node name="MarkerPile" type="Marker2D" parent="边距"]
+position = Vector2(17, 16)
+
+[node name="操作栏" parent="." instance=ExtResource("7_5xgoy")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -208.0
+offset_right = -16.0
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0

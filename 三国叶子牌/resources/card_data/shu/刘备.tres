@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://di0der4pfh01o"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_h11s5"]
+
+[resource]
+script = ExtResource("1_h11s5")
+Name = "刘备"
+Camp = 1
+Power = 75
+Wisdom = 86
+Skill = "昭烈"
+SkillDesc = "对蜀国武将必胜"
+Type = 0

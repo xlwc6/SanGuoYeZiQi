@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://d38f4wi3gmwwd"]
+
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="1_rv626"]
+[ext_resource type="Script" uid="uid://d2lsixjjn6nry" path="res://ui/WaitPage.cs" id="1_trih0"]
+
+[node name="WaitPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_trih0")
+
+[node name="幕布" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="行布局" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -20.0
+offset_right = 59.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="消息内容" type="Label" parent="行布局"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rv626")
+theme_override_font_sizes/font_size = 24
+text = "请等待"
+
+[node name="省略号" type="Label" parent="行布局"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rv626")
+theme_override_font_sizes/font_size = 24
+text = "......"
+
+[node name="打字机" type="Timer" parent="行布局"]
+unique_name_in_owner = true
+wait_time = 0.5

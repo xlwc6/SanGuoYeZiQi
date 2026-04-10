@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b0f1r5kaayeos"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_a8oop"]
+
+[resource]
+script = ExtResource("1_a8oop")
+Name = "鲁肃"
+Camp = 3
+Power = 62
+Wisdom = 91
+Skill = "结盟"
+SkillDesc = "你面对蜀国和吴国武将均视为战平，双方丢弃"
+Type = 0

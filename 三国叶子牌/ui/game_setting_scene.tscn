@@ -1,0 +1,290 @@
+[gd_scene load_steps=12 format=3 uid="uid://x3xmysr77ipi"]
+
+[ext_resource type="Script" uid="uid://cp33688duq7xt" path="res://ui/GameSettingScene.cs" id="1_0kk0x"]
+[ext_resource type="Theme" uid="uid://c53iigoj10dia" path="res://accests/main_theme.tres" id="1_c2in0"]
+[ext_resource type="Texture2D" uid="uid://cip7qbttkka5r" path="res://accests/tiles/tilemap.png" id="3_lwo11"]
+[ext_resource type="PackedScene" uid="uid://c53gj2fmm5788" path="res://ui/avatar_rect.tscn" id="4_iar0x"]
+[ext_resource type="Texture2D" uid="uid://b7nnqipft87eb" path="res://accests/tiles/dice.png" id="5_kldl8"]
+[ext_resource type="Texture2D" uid="uid://77dboixchumx" path="res://accests/tiles/dice_detailed.png" id="5_ktwej"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jk6f"]
+bg_color = Color(0.5921569, 0.44313726, 0.2901961, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.5921569, 0.44313726, 0.2901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdwpl"]
+bg_color = Color(0.827451, 0.7490196, 0.56078434, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5jk6f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kldl8"]
+texture = ExtResource("3_lwo11")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(198, 66, 32, 32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdwpl"]
+
+[node name="GameSettingScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0kk0x")
+
+[node name="边距" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 36
+
+[node name="面板容器" type="PanelContainer" parent="边距"]
+layout_mode = 2
+theme = ExtResource("1_c2in0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5jk6f")
+
+[node name="行容器" type="VBoxContainer" parent="边距/面板容器"]
+layout_mode = 2
+
+[node name="选项卡" type="TabContainer" parent="边距/面板容器/行容器"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/panel = SubResource("StyleBoxFlat_fdwpl")
+current_tab = 0
+
+[node name="用户设置" type="Panel" parent="边距/面板容器/行容器/选项卡"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5jk6f")
+metadata/_tab_index = 0
+
+[node name="头像框" type="PanelContainer" parent="边距/面板容器/行容器/选项卡/用户设置"]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kldl8")
+
+[node name="头像" parent="边距/面板容器/行容器/选项卡/用户设置/头像框" instance=ExtResource("4_iar0x")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="用户信息" type="VBoxContainer" parent="边距/面板容器/行容器/选项卡/用户设置"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_top = 40.0
+offset_right = 165.0
+offset_bottom = 124.0
+grow_horizontal = 2
+theme_override_constants/separation = 30
+
+[node name="编号" type="HBoxContainer" parent="边距/面板容器/行容器/选项卡/用户设置/用户信息"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="标签" type="Label" parent="边距/面板容器/行容器/选项卡/用户设置/用户信息/编号"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "用户编号："
+
+[node name="用户编号" type="TextEdit" parent="边距/面板容器/行容器/选项卡/用户设置/用户信息/编号"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "11111111"
+editable = false
+
+[node name="姓名" type="HBoxContainer" parent="边距/面板容器/行容器/选项卡/用户设置/用户信息"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="标签" type="Label" parent="边距/面板容器/行容器/选项卡/用户设置/用户信息/姓名"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "用户姓名："
+
+[node name="用户姓名" type="TextEdit" parent="边距/面板容器/行容器/选项卡/用户设置/用户信息/姓名"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+placeholder_text = "请输入您的姓名"
+
+[node name="随机" type="TextureButton" parent="边距/面板容器/行容器/选项卡/用户设置/用户信息/姓名"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_ktwej")
+texture_pressed = ExtResource("5_kldl8")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="提示" type="Label" parent="边距/面板容器/行容器/选项卡/用户设置"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 210.0
+offset_right = 183.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0.91228896, 0.9122889, 0.91228884, 1)
+theme_override_font_sizes/font_size = 14
+text = "点击头像可进行修改"
+
+[node name="头像选择弹窗" type="PopupPanel" parent="边距/面板容器/行容器/选项卡/用户设置"]
+unique_name_in_owner = true
+oversampling_override = 1.0
+position = Vector2i(260, 120)
+size = Vector2i(516, 328)
+max_size = Vector2i(600, 480)
+
+[node name="滚动条容器" type="ScrollContainer" parent="边距/面板容器/行容器/选项卡/用户设置/头像选择弹窗"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 512.0
+offset_bottom = 324.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="头像列表" type="HFlowContainer" parent="边距/面板容器/行容器/选项卡/用户设置/头像选择弹窗/滚动条容器"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="音频设置" type="Panel" parent="边距/面板容器/行容器/选项卡"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fdwpl")
+metadata/_tab_index = 1
+
+[node name="行容器" type="VBoxContainer" parent="边距/面板容器/行容器/选项卡/音频设置"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -199.0
+offset_right = 156.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="总音量" type="HBoxContainer" parent="边距/面板容器/行容器/选项卡/音频设置/行容器"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="总音量" type="Label" parent="边距/面板容器/行容器/选项卡/音频设置/行容器/总音量"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "总音乐："
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="总音乐滑块" type="HSlider" parent="边距/面板容器/行容器/选项卡/音频设置/行容器/总音量"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="音乐控制" type="HBoxContainer" parent="边距/面板容器/行容器/选项卡/音频设置/行容器"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="音乐" type="Label" parent="边距/面板容器/行容器/选项卡/音频设置/行容器/音乐控制"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "音乐："
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="音乐滑块" type="HSlider" parent="边距/面板容器/行容器/选项卡/音频设置/行容器/音乐控制"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="音效控制" type="HBoxContainer" parent="边距/面板容器/行容器/选项卡/音频设置/行容器"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="音效" type="Label" parent="边距/面板容器/行容器/选项卡/音频设置/行容器/音效控制"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "音效："
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="音效滑块" type="HSlider" parent="边距/面板容器/行容器/选项卡/音频设置/行容器/音效控制"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="操作栏" type="HBoxContainer" parent="边距/面板容器/行容器"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="确定" type="Button" parent="边距/面板容器/行容器/操作栏"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = "确定"
+
+[node name="取消" type="Button" parent="边距/面板容器/行容器/操作栏"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = "取消"

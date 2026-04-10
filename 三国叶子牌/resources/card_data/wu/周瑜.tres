@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://3taoprnoxkf6"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_fcjxg"]
+
+[resource]
+script = ExtResource("1_fcjxg")
+Name = "周瑜"
+Camp = 3
+Power = 82
+Wisdom = 98
+Skill = "火神"
+SkillDesc = "当你战胜对方时，对方随机丢弃一张手牌"
+Type = 2

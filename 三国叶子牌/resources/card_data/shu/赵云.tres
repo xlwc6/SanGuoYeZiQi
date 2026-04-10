@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bg2mu4r1fypam"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_2wgjp"]
+
+[resource]
+script = ExtResource("1_2wgjp")
+Name = "赵云"
+Camp = 1
+Power = 95
+Wisdom = 75
+Skill = "常胜"
+SkillDesc = "当你战胜敌方武将时，此牌不丢弃而是回到你的手牌"
+Type = 2

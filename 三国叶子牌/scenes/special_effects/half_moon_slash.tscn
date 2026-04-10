@@ -1,0 +1,121 @@
+[gd_scene load_steps=25 format=3 uid="uid://b0123aou147wi"]
+
+[ext_resource type="Script" uid="uid://b8lmsjbalijbl" path="res://scenes/special_effects/HalfMoonSlash.cs" id="1_dtqj0"]
+[ext_resource type="Script" uid="uid://dvqfiv02f4b7d" path="res://components/skill_manager/SkillActuator.cs" id="1_py81g"]
+[ext_resource type="AudioStream" uid="uid://ddhx1r28v5i7b" path="res://accests/audios/sfx_sound_poweron.wav" id="2_ymcms"]
+[ext_resource type="AudioStream" uid="uid://d2wynddc7as6l" path="res://accests/audios/spell.wav" id="3_u5clu"]
+[ext_resource type="AudioStream" uid="uid://b8r6hoku2deyg" path="res://accests/audios/sfx_exp_odd7.wav" id="4_yn4wx"]
+[ext_resource type="Texture2D" uid="uid://cjn8farck8phq" path="res://accests/effects/halfmoonslash/se_15.png" id="5_ymcms"]
+[ext_resource type="Texture2D" uid="uid://bet05onquijtg" path="res://accests/effects/halfmoonslash/se_16.png" id="6_u5clu"]
+[ext_resource type="Texture2D" uid="uid://k8g1uhmc17ti" path="res://accests/effects/halfmoonslash/se_17.png" id="7_yn4wx"]
+[ext_resource type="Texture2D" uid="uid://cgdbct2jov6pg" path="res://accests/effects/halfmoonslash/se_18.png" id="8_2w3mt"]
+[ext_resource type="Texture2D" uid="uid://dahpojktbcivi" path="res://accests/effects/halfmoonslash/se_19.png" id="9_kpa48"]
+[ext_resource type="Texture2D" uid="uid://be5lvow7dinc" path="res://accests/effects/halfmoonslash/sp_07.png" id="9_rekdg"]
+[ext_resource type="Texture2D" uid="uid://d175lbf6oojaw" path="res://accests/effects/halfmoonslash/sp_08.png" id="10_bosa7"]
+[ext_resource type="Texture2D" uid="uid://dhquy3618kwiu" path="res://accests/effects/halfmoonslash/sp_09.png" id="11_jyrya"]
+[ext_resource type="Texture2D" uid="uid://cr8rvr6u77qsw" path="res://accests/effects/halfmoonslash/sp_10.png" id="12_pjw6k"]
+[ext_resource type="Texture2D" uid="uid://be5at47sf0r3r" path="res://accests/effects/halfmoonslash/sp_11.png" id="13_fpn5b"]
+[ext_resource type="Texture2D" uid="uid://bu0ev6pgwgqtw" path="res://accests/effects/halfmoonslash/sp_12.png" id="14_43xgh"]
+[ext_resource type="Texture2D" uid="uid://lj0obml34b45" path="res://accests/effects/halfmoonslash/ss_01.png" id="15_udglc"]
+[ext_resource type="Texture2D" uid="uid://bmop5s61b2bot" path="res://accests/effects/halfmoonslash/ss_02.png" id="16_lo4vg"]
+[ext_resource type="Texture2D" uid="uid://cth5d4idb85cx" path="res://accests/effects/halfmoonslash/ss_03.png" id="17_4abeo"]
+[ext_resource type="Texture2D" uid="uid://c5ihiv51ixcg2" path="res://accests/effects/halfmoonslash/ss_04.png" id="18_3acw7"]
+[ext_resource type="Texture2D" uid="uid://cr1udeuvryd71" path="res://accests/effects/halfmoonslash/ss_05.png" id="19_5knp7"]
+[ext_resource type="Texture2D" uid="uid://cd2452np546yr" path="res://accests/effects/halfmoonslash/ss_06.png" id="20_cecm2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_isp38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ymcms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u5clu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yn4wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2w3mt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kpa48")
+}],
+"loop": false,
+"name": &"半月斩_击中",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_udglc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lo4vg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4abeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3acw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_5knp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cecm2")
+}],
+"loop": true,
+"name": &"半月斩_蓄力",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_bosa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jyrya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pjw6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fpn5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_43xgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rekdg")
+}],
+"loop": true,
+"name": &"半月斩_追击",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mi4vl"]
+radius = 40.706264
+
+[node name="HalfMoonSlash" type="Node2D"]
+script = ExtResource("1_dtqj0")
+startAudio = ExtResource("2_ymcms")
+goingAudio = ExtResource("3_u5clu")
+endAudio = ExtResource("4_yn4wx")
+
+[node name="技能释放器" type="Node" parent="."]
+script = ExtResource("1_py81g")
+metadata/_custom_type_script = "uid://dvqfiv02f4b7d"
+
+[node name="技能特效" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_isp38")
+animation = &"半月斩_击中"
+
+[node name="碰撞区域" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+monitorable = false
+
+[node name="形状" type="CollisionShape2D" parent="碰撞区域"]
+shape = SubResource("CircleShape2D_mi4vl")
+
+[node name="技能音效" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

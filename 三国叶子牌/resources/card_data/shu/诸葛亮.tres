@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dg7rbrxaxw8e8"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_j4wdg"]
+
+[resource]
+script = ExtResource("1_j4wdg")
+Name = "诸葛亮"
+Camp = 1
+Power = 43
+Wisdom = 99
+Skill = "神算"
+SkillDesc = "你对战非蜀国武将时，改为用智力与对方比拼"

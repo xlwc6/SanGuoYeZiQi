@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc0dblqaxqh28"]
+
+[ext_resource type="Script" uid="uid://dirkx7mxwp62s" path="res://ui/SelectorGridPanel.cs" id="1_khpe1"]
+
+[node name="SelectorGridPanel" type="ScrollContainer"]
+custom_minimum_size = Vector2(440, 330)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_khpe1")
+
+[node name="卡牌列表" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16

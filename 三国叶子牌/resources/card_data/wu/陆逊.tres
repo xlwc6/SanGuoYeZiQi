@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b34xe8ne3l78g"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_nortc"]
+
+[resource]
+script = ExtResource("1_nortc")
+Name = "陆逊"
+Camp = 3
+Power = 88
+Wisdom = 93
+Skill = "摧营"
+SkillDesc = "你对智力低于自己的蜀国武将必胜"

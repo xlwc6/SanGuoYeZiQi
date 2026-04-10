@@ -1,0 +1,126 @@
+[gd_scene load_steps=8 format=3 uid="uid://ffib6nkxsijp"]
+
+[ext_resource type="Script" uid="uid://3o7ainuh66cv" path="res://ui/CardDiscardScene.cs" id="1_rfuvd"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="2_321vh"]
+[ext_resource type="PackedScene" uid="uid://dc0dblqaxqh28" path="res://ui/selector_grid_panel.tscn" id="2_rfuvd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eknud"]
+bg_color = Color(0.7490196, 0.5764706, 0.4392157, 1)
+border_color = Color(0.4862745, 0.34901962, 0.23921569, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5m8qw"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7490196, 0.5764706, 0.4392157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbscv"]
+bg_color = Color(0.18431373, 0.18431373, 0.18431373, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c5w8"]
+bg_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="弃牌界面" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rfuvd")
+
+[node name="遮幕层" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75686276)
+
+[node name="弃牌边距" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="弃牌行容器" type="VBoxContainer" parent="弃牌边距"]
+layout_mode = 2
+
+[node name="弃牌行容器" type="VBoxContainer" parent="弃牌边距/弃牌行容器"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="弃牌提示" type="Label" parent="弃牌边距/弃牌行容器/弃牌行容器"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_321vh")
+theme_override_font_sizes/font_size = 32
+text = "手牌已满，您需要丢弃1张"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="弃牌倒计时" type="Label" parent="弃牌边距/弃牌行容器/弃牌行容器"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92156863, 0.1764706, 0.3647059, 1)
+theme_override_fonts/font = ExtResource("2_321vh")
+theme_override_font_sizes/font_size = 32
+text = "倒计时：15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="选择计时器" type="Timer" parent="弃牌边距/弃牌行容器/弃牌行容器"]
+unique_name_in_owner = true
+
+[node name="弃牌选择器" parent="弃牌边距/弃牌行容器" instance=ExtResource("2_rfuvd")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+MaxColum = 6
+
+[node name="弃牌操作栏" type="HBoxContainer" parent="弃牌边距/弃牌行容器"]
+layout_mode = 2
+alignment = 1
+
+[node name="确认丢弃" type="Button" parent="弃牌边距/弃牌行容器/弃牌操作栏"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_disabled_color = Color(0.6703474, 0.67355514, 0.6952935, 1)
+theme_override_fonts/font = ExtResource("2_321vh")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_eknud")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5m8qw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rbscv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3c5w8")
+disabled = true
+text = "确认丢弃"

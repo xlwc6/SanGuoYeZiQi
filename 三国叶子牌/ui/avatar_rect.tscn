@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c53gj2fmm5788"]
+
+[ext_resource type="Texture2D" uid="uid://c6sdebqtgit47" path="res://accests/avatars/c60a2ddbb6fd5266836ae001ed18972bd50736a7.jpg" id="1_kx2nl"]
+[ext_resource type="Script" uid="uid://cjsonc4aadn1i" path="res://ui/AvatarRect.cs" id="2_1i52j"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="3_y8opf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8opf"]
+bg_color = Color(0, 0, 0, 0.5137255)
+
+[node name="AvatarRect" type="TextureRect"]
+custom_minimum_size = Vector2(96, 96)
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("1_kx2nl")
+expand_mode = 1
+script = ExtResource("2_1i52j")
+
+[node name="提示信息" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_y8opf")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_y8opf")
+text = "头像"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://6whlsyxw70vo"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_g6e87"]
+
+[resource]
+script = ExtResource("1_g6e87")
+Name = "曹操"
+Camp = 2
+Power = 80
+Wisdom = 94
+Skill = "奸雄"
+SkillDesc = "对魏国武将必胜，同时克制吕布"
+Type = 0

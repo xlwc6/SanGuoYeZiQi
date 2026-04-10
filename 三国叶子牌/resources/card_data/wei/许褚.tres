@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dpncnt6nhy6p2"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_ahbfl"]
+
+[resource]
+script = ExtResource("1_ahbfl")
+Name = "许褚"
+Camp = 2
+Power = 93
+Wisdom = 51
+Skill = "虎痴"
+SkillDesc = "可以和张飞、马超打个平手"
+Type = 0

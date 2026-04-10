@@ -1,0 +1,17 @@
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\bin\Debug\三国叶子牌.deps.json
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\bin\Debug\三国叶子牌.runtimeconfig.json
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\bin\Debug\三国叶子牌.dll
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\bin\Debug\三国叶子牌.pdb
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\三国叶子牌.csproj.AssemblyReference.cache
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\三国叶子牌.GeneratedMSBuildEditorConfig.editorconfig
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\三国叶子牌.AssemblyInfoInputs.cache
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\三国叶子牌.AssemblyInfo.cs
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\三国叶子牌.csproj.CoreCompileInputs.cache
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\三国叶子牌.csproj.Up2Date
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\三国叶子牌.dll
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\refint\三国叶子牌.dll
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\三国叶子牌.pdb
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\三国叶子牌.genruntimeconfig.cache
+D:\Godot\Projects\三国叶子牌\.godot\mono\temp\obj\Debug\ref\三国叶子牌.dll

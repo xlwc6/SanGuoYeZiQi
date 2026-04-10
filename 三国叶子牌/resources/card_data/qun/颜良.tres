@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://duw5h7bwvucam"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_g1mwt"]
+
+[resource]
+script = ExtResource("1_g1mwt")
+Name = "颜良"
+Power = 92
+Wisdom = 61

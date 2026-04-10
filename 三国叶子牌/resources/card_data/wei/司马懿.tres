@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dl3s8u7qe7nup"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_hn6sv"]
+
+[resource]
+script = ExtResource("1_hn6sv")
+Name = "司马懿"
+Camp = 2
+Power = 75
+Wisdom = 97
+Skill = "代立"
+SkillDesc = "你对除曹操外的魏国武将必胜"

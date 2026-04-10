@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dv16pqn8okj1i"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_0owic"]
+
+[resource]
+script = ExtResource("1_0owic")
+Name = "孙权"
+Camp = 3
+Power = 70
+Wisdom = 85
+Skill = "鼎峙"
+SkillDesc = "对吴国武将必胜"
+Type = 0

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://0ibhy7tbhbyv"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_o8qcy"]
+
+[resource]
+script = ExtResource("1_o8qcy")
+Name = "夏侯渊"
+Camp = 2
+Power = 91
+Wisdom = 70
+Skill = "神射"
+SkillDesc = "无视对方技能，优先判断"
+Type = 0

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d4e6tgj47imaw"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_hw33v"]
+
+[resource]
+script = ExtResource("1_hw33v")
+Name = "貂蝉"
+Power = 40
+Wisdom = 80
+Skill = "红颜"
+SkillDesc = "对吕布、曹操、关羽必胜，优先判断"
+Type = 0

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b0ss45vy6i7ly"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_hrtpm"]
+
+[resource]
+script = ExtResource("1_hrtpm")
+Name = "姜维"
+Camp = 1
+Power = 85
+Wisdom = 89
+Skill = "克复"
+SkillDesc = "你对智力低于你的魏国武将必胜"

@@ -1,0 +1,120 @@
+[gd_scene load_steps=5 format=3 uid="uid://wuasbyuwc38a"]
+
+[ext_resource type="Theme" uid="uid://c53iigoj10dia" path="res://accests/main_theme.tres" id="1_kvg1h"]
+[ext_resource type="Script" uid="uid://boux7i32h0ui1" path="res://ui/CardSlot.cs" id="1_txxa8"]
+[ext_resource type="StyleBox" uid="uid://c64hkilxway5q" path="res://resources/card_data/card_panel_qun.tres" id="2_4d7p1"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="4_4d7p1"]
+
+[node name="CardSlot" type="Panel"]
+custom_minimum_size = Vector2(130, 190)
+offset_left = 64.0
+offset_top = 39.0
+offset_right = 194.0
+offset_bottom = 229.0
+theme = ExtResource("1_kvg1h")
+theme_override_styles/panel = ExtResource("2_4d7p1")
+script = ExtResource("1_txxa8")
+
+[node name="姓名" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 32.0
+offset_bottom = 58.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_4d7p1")
+theme_override_font_sizes/font_size = 16
+text = "李小二"
+autowrap_mode = 1
+
+[node name="阵容" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -22.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 27.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 12
+text = "群"
+horizontal_alignment = 2
+
+[node name="技能" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -5.0
+offset_right = -10.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="技能名称" type="Label" parent="技能"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "测试"
+
+[node name="技能描述" type="Label" parent="技能"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "你为什么会看到这个呢你为什么会看到这个呢"
+autowrap_mode = 1
+
+[node name="属性" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -27.0
+offset_right = 95.0
+offset_bottom = -10.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="武力" type="Label" parent="属性"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "武：99"
+
+[node name="智力" type="Label" parent="属性"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "智：30"
+
+[node name="选择按钮" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+
+[node name="轮廓" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(1, 4, 126, 4, 126, 186, 4, 186, 4, 7)
+width = 6.0
+default_color = Color(0.9490196, 0.74509805, 0.27058825, 1)
+
+[node name="幕布" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)

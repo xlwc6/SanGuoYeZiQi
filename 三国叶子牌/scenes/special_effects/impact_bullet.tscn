@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://co55rfklhasnx"]
+
+[ext_resource type="Script" uid="uid://dvqfiv02f4b7d" path="res://components/skill_manager/SkillActuator.cs" id="1_7hqht"]
+[ext_resource type="Script" uid="uid://c7wn76h788t1m" path="res://scenes/special_effects/ImpactBullet.cs" id="1_if4c6"]
+[ext_resource type="AudioStream" uid="uid://w1l38wibu41q" path="res://accests/audios/sfx_sound_shutdown1.wav" id="2_ph3lf"]
+[ext_resource type="PackedScene" uid="uid://cuwt88fmk4rbb" path="res://scenes/special_effects/laser_2d_with_line.tscn" id="3_60b3d"]
+
+[node name="ImpactBullet" type="Node2D"]
+script = ExtResource("1_if4c6")
+goingAudio = ExtResource("2_ph3lf")
+
+[node name="技能释放器" type="Node" parent="."]
+script = ExtResource("1_7hqht")
+metadata/_custom_type_script = "uid://dvqfiv02f4b7d"
+
+[node name="激光射线" parent="." instance=ExtResource("3_60b3d")]
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+line_color = Color(1.2707626, 0.88379914, 0.2580687, 1)
+max_length = 1400.0
+growth_time = 0.3
+
+[node name="技能音效" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

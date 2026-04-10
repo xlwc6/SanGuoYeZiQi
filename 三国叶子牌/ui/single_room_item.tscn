@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://w2ukpsaaf5pa"]
+
+[ext_resource type="ButtonGroup" uid="uid://xm0pu2n2frd5" path="res://accests/lobby_room_btngroup.tres" id="1_el5jb"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="1_o4dk5"]
+[ext_resource type="Script" uid="uid://x1iiqihash55" path="res://ui/SingleRoomItem.cs" id="2_m1ibj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yucvg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yucvg"]
+bg_color = Color(0.8745098, 0.8352941, 0.69803923, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4dk5"]
+bg_color = Color(0.8745098, 0.8352941, 0.69803923, 1)
+
+[node name="SingleRoomItem" type="Button"]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yucvg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yucvg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o4dk5")
+toggle_mode = true
+button_group = ExtResource("1_el5jb")
+script = ExtResource("2_m1ibj")
+
+[node name="列布局" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="房间名称" type="Label" parent="列布局"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_o4dk5")
+theme_override_font_sizes/font_size = 16
+text = "房间名称"
+
+[node name="游戏模式" type="Label" parent="列布局"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_o4dk5")
+theme_override_font_sizes/font_size = 16
+text = "普通模式"
+horizontal_alignment = 1
+
+[node name="密码设置" type="Label" parent="列布局"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_o4dk5")
+theme_override_font_sizes/font_size = 16
+text = "需要密码"
+horizontal_alignment = 1
+
+[node name="房间人数" type="Label" parent="列布局"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_o4dk5")
+theme_override_font_sizes/font_size = 16
+text = "1 / 2"
+horizontal_alignment = 1

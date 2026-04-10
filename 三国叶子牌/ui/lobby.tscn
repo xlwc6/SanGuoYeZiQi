@@ -1,0 +1,215 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfqwopwtjcdkn"]
+
+[ext_resource type="StyleBox" uid="uid://bs2ytjur7yft2" path="res://accests/panel_bg_margin.tres" id="1_4sfkc"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="1_hgmly"]
+[ext_resource type="Theme" uid="uid://c53iigoj10dia" path="res://accests/main_theme.tres" id="1_nmq56"]
+[ext_resource type="Script" uid="uid://chy1beqffr1vv" path="res://ui/Lobby.cs" id="1_pars8"]
+[ext_resource type="PackedScene" uid="uid://bh0tlv0y3jja4" path="res://components/udp_network/udp_client_node.tscn" id="2_ienge"]
+[ext_resource type="PackedScene" uid="uid://c5bsohym2ef6h" path="res://scenes/message_box/message_box.tscn" id="6_ienge"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pars8")
+
+[node name="局域网客户端" parent="." instance=ExtResource("2_ienge")]
+
+[node name="边距" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 36
+
+[node name="列布局" type="HBoxContainer" parent="边距"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="房间列表" type="PanelContainer" parent="边距/列布局"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("1_4sfkc")
+
+[node name="行布局" type="VBoxContainer" parent="边距/列布局/房间列表"]
+layout_mode = 2
+
+[node name="房间列表标题" type="Label" parent="边距/列布局/房间列表/行布局"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_hgmly")
+theme_override_font_sizes/font_size = 24
+text = "房间列表"
+vertical_alignment = 1
+
+[node name="房间列表表格" type="GridContainer" parent="边距/列布局/房间列表/行布局"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="列布局" type="HBoxContainer" parent="边距/列布局/房间列表/行布局"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="搜索房间标签" type="Label" parent="边距/列布局/房间列表/行布局/列布局"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hgmly")
+theme_override_font_sizes/font_size = 24
+text = "搜索房间："
+
+[node name="搜索房间" type="TextEdit" parent="边距/列布局/房间列表/行布局/列布局"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_hgmly")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "请输入房间名称查询"
+
+[node name="搜索按钮" type="Button" parent="边距/列布局/房间列表/行布局/列布局"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_nmq56")
+theme_override_font_sizes/font_size = 24
+text = "搜索"
+
+[node name="房间信息" type="PanelContainer" parent="边距/列布局"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_4sfkc")
+
+[node name="行布局" type="VBoxContainer" parent="边距/列布局/房间信息"]
+layout_mode = 2
+
+[node name="房间信息标题" type="Label" parent="边距/列布局/房间信息/行布局"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_hgmly")
+theme_override_font_sizes/font_size = 24
+text = "房间信息"
+vertical_alignment = 1
+
+[node name="行布局" type="VBoxContainer" parent="边距/列布局/房间信息/行布局"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="房间名称容器" type="HBoxContainer" parent="边距/列布局/房间信息/行布局/行布局"]
+layout_mode = 2
+
+[node name="名称标签" type="Label" parent="边距/列布局/房间信息/行布局/行布局/房间名称容器"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hgmly")
+theme_override_font_sizes/font_size = 24
+text = "名称："
+horizontal_alignment = 2
+
+[node name="房间名称" type="TextEdit" parent="边距/列布局/房间信息/行布局/行布局/房间名称容器"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hgmly")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "请输入名称"
+
+[node name="游戏模式容器" type="HBoxContainer" parent="边距/列布局/房间信息/行布局/行布局"]
+layout_mode = 2
+
+[node name="模式标签" type="Label" parent="边距/列布局/房间信息/行布局/行布局/游戏模式容器"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hgmly")
+theme_override_font_sizes/font_size = 24
+text = "模式："
+horizontal_alignment = 2
+
+[node name="游戏模式" type="OptionButton" parent="边距/列布局/房间信息/行布局/行布局/游戏模式容器"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hgmly")
+theme_override_font_sizes/font_size = 24
+selected = 0
+item_count = 1
+popup/item_0/text = "普通模式"
+popup/item_0/id = 0
+
+[node name="设置密码容器" type="HBoxContainer" parent="边距/列布局/房间信息/行布局/行布局"]
+layout_mode = 2
+
+[node name="密码标签" type="Label" parent="边距/列布局/房间信息/行布局/行布局/设置密码容器"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hgmly")
+theme_override_font_sizes/font_size = 24
+text = "密码："
+horizontal_alignment = 2
+
+[node name="密码" type="TextEdit" parent="边距/列布局/房间信息/行布局/行布局/设置密码容器"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hgmly")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "请输入密码"
+editable = false
+
+[node name="启用密码" type="CheckButton" parent="边距/列布局/房间信息/行布局/行布局/设置密码容器"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="操作按钮容器" type="HBoxContainer" parent="边距/列布局/房间信息/行布局/行布局"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="创建" type="Button" parent="边距/列布局/房间信息/行布局/行布局/操作按钮容器"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+theme = ExtResource("1_nmq56")
+theme_override_font_sizes/font_size = 24
+text = "创建"
+
+[node name="加入" type="Button" parent="边距/列布局/房间信息/行布局/行布局/操作按钮容器"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+theme = ExtResource("1_nmq56")
+theme_override_font_sizes/font_size = 24
+text = "加入"
+
+[node name="其他容器" type="HBoxContainer" parent="边距/列布局/房间信息/行布局/行布局"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="回到标题" type="Button" parent="边距/列布局/房间信息/行布局/行布局/其他容器"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme = ExtResource("1_nmq56")
+theme_override_font_sizes/font_size = 24
+text = "返回标题"
+
+[node name="弹出层" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="消息弹窗" parent="弹出层" instance=ExtResource("6_ienge")]
+unique_name_in_owner = true
+visible = false

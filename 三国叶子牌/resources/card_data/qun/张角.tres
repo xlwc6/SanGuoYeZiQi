@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://50na617rmwfu"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_2eixs"]
+
+[resource]
+script = ExtResource("1_2eixs")
+Name = "张角"
+Power = 71
+Wisdom = 90
+Skill = "举义"
+SkillDesc = "此牌即使被战胜也不会被对方获得，而是直接丢弃手牌"
+Type = 2

@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqleo7q2a2b80"]
+
+[ext_resource type="Script" uid="uid://dlsjqv4kewpe8" path="res://ui/EnemyCanvasLayer.cs" id="1_cnq22"]
+[ext_resource type="Texture2D" uid="uid://cip7qbttkka5r" path="res://accests/tiles/tilemap.png" id="1_x767g"]
+[ext_resource type="PackedScene" uid="uid://y7jmxofchr88" path="res://components/manager/hand_manager.tscn" id="2_h8jrv"]
+[ext_resource type="Texture2D" uid="uid://wlqu8wo4p1s5" path="res://accests/avatars/f5d08713b07eca80f66238c9d72397dda04483fe.jpg" id="3_cnq22"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="4_cnq22"]
+[ext_resource type="PackedScene" uid="uid://dty8n45tdc3dg" path="res://ui/heart.tscn" id="5_mc637"]
+[ext_resource type="StyleBox" uid="uid://eyrkti6qlgwq" path="res://accests/label_bg.tres" id="5_wt07d"]
+[ext_resource type="PackedScene" uid="uid://dtcgbqrp3g5sa" path="res://scenes/card_pile/card_pile.tscn" id="7_mc637"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x767g"]
+texture = ExtResource("1_x767g")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(264, 0, 32, 32)
+
+[node name="EnemyCanvasLayer" type="Control"]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_cnq22")
+
+[node name="边距" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="活动区域" type="HBoxContainer" parent="边距"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="状态" type="VBoxContainer" parent="边距/活动区域"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="头像" type="PanelContainer" parent="边距/活动区域/状态"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_x767g")
+
+[node name="图片" type="TextureRect" parent="边距/活动区域/状态/头像"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_cnq22")
+expand_mode = 1
+
+[node name="昵称" type="Label" parent="边距/活动区域/状态/头像"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_cnq22")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("5_wt07d")
+text = "王二"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Heart" parent="边距/活动区域/状态" instance=ExtResource("5_mc637")]
+layout_mode = 2
+ownerType = 2
+
+[node name="HandManager" parent="边距/活动区域" node_paths=PackedStringArray("markPosition") groups=["enemy_deck"] instance=ExtResource("2_h8jrv")]
+layout_mode = 2
+theme_override_constants/separation = -60
+ownerType = 2
+markPosition = NodePath("../../MarkerHand")
+
+[node name="CardPile" parent="边距/活动区域" node_paths=PackedStringArray("markPosition") groups=["enemy_discard_deck"] instance=ExtResource("7_mc637")]
+layout_mode = 2
+size_flags_horizontal = 10
+ownerType = 2
+markPosition = NodePath("../../MarkerPile")
+
+[node name="MarkerHand" type="Marker2D" parent="边距"]
+position = Vector2(167, 16)
+
+[node name="MarkerPile" type="Marker2D" parent="边距"]
+position = Vector2(1007, 16)

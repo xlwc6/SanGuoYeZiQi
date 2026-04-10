@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d3vn8m1um643d"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_kje25"]
+
+[resource]
+script = ExtResource("1_kje25")
+Name = "刘协"
+Power = 30
+Wisdom = 50
+Skill = "天子"
+SkillDesc = "你对非魏国武将必胜，优先判断"
+Type = 0

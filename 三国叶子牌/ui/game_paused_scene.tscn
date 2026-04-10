@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0jyemvw732b0"]
+
+[ext_resource type="Script" uid="uid://cmucp21fm3o8t" path="res://ui/GamePausedScene.cs" id="1_v2fb2"]
+[ext_resource type="StyleBox" uid="uid://bo6lvcb0467a2" path="res://accests/panel_bg.tres" id="2_4w6ug"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="3_4w6ug"]
+[ext_resource type="Theme" uid="uid://c53iigoj10dia" path="res://accests/main_theme.tres" id="3_n0gcx"]
+
+[node name="GamePausedScene" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2fb2")
+
+[node name="幕布" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75686276)
+
+[node name="边距" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="水平容器" type="HBoxContainer" parent="边距"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="日志面板" type="Panel" parent="边距/水平容器"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("2_4w6ug")
+
+[node name="日志边距" type="MarginContainer" parent="边距/水平容器/日志面板"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="日志显示标签" type="RichTextLabel" parent="边距/水平容器/日志面板/日志边距"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_4w6ug")
+theme_override_font_sizes/normal_font_size = 16
+scroll_following = true
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="操作面板" type="Panel" parent="边距/水平容器"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_4w6ug")
+
+[node name="游戏功能" type="VBoxContainer" parent="边距/水平容器/操作面板"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 180.0
+grow_horizontal = 2
+theme = ExtResource("3_n0gcx")
+theme_override_constants/separation = 20
+
+[node name="继续游戏" type="Button" parent="边距/水平容器/操作面板/游戏功能"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "继续游戏"
+
+[node name="重新开始" type="Button" parent="边距/水平容器/操作面板/游戏功能"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "重新开始"
+
+[node name="回到标题" type="Button" parent="边距/水平容器/操作面板/游戏功能"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "回到标题"

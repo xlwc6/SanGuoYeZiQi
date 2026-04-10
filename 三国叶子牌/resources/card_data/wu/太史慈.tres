@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bx043koxpyvdf"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_cybpi"]
+
+[resource]
+script = ExtResource("1_cybpi")
+Name = "太史慈"
+Camp = 3
+Power = 97
+Wisdom = 59

@@ -1,0 +1,204 @@
+[gd_scene load_steps=15 format=3 uid="uid://c0cuontoh2m73"]
+
+[ext_resource type="Script" uid="uid://0oq3nr6gkk13" path="res://ui/PvpGameRoom.cs" id="1_o43nt"]
+[ext_resource type="PackedScene" uid="uid://6c5n3qd8lvmn" path="res://components/udp_network/udp_server_node.tscn" id="2_7ovjj"]
+[ext_resource type="Texture2D" uid="uid://dh383f83xqtrt" path="res://accests/tiles/background.png" id="2_jlihg"]
+[ext_resource type="PackedScene" uid="uid://dqleo7q2a2b80" path="res://ui/enemy_canvas_layer.tscn" id="4_alr4a"]
+[ext_resource type="PackedScene" uid="uid://buv0aracijphm" path="res://ui/player_canvas_layer.tscn" id="5_hluaa"]
+[ext_resource type="FontFile" uid="uid://vuovcay1df2m" path="res://accests/fonts/zhuquefangsongceshiban.ttf" id="6_evgpt"]
+[ext_resource type="Texture2D" uid="uid://kl63y0tobpdl" path="res://accests/tiles/battle.png" id="7_co7ae"]
+[ext_resource type="PackedScene" uid="uid://cnhfcc6r8wawx" path="res://ui/game_over_scene.tscn" id="8_8q87g"]
+[ext_resource type="PackedScene" uid="uid://d38f4wi3gmwwd" path="res://ui/wait_page.tscn" id="9_fqdpd"]
+[ext_resource type="PackedScene" uid="uid://ffib6nkxsijp" path="res://ui/card_discard_scene.tscn" id="11_3kssn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dqy4"]
+size = Vector2(105, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fas1d"]
+size = Vector2(25, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k05gi"]
+size = Vector2(26, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tfd1"]
+size = Vector2(75, 22)
+
+[node name="PvPGameRoom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o43nt")
+
+[node name="局域网服务器" parent="." instance=ExtResource("2_7ovjj")]
+
+[node name="背景图" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 654.0
+texture = ExtResource("2_jlihg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="准备就绪计时器" type="Timer" parent="."]
+
+[node name="敌方界面" parent="." instance=ExtResource("4_alr4a")]
+visible = false
+layout_mode = 1
+offset_bottom = 210.0
+
+[node name="敌方位置" type="Marker2D" parent="敌方界面"]
+unique_name_in_owner = true
+position = Vector2(99, 100)
+
+[node name="玩家界面" parent="." instance=ExtResource("5_hluaa")]
+layout_mode = 1
+offset_top = -210.0
+
+[node name="玩家位置" type="Marker2D" parent="玩家界面"]
+unique_name_in_owner = true
+position = Vector2(1042, 102)
+
+[node name="战斗界面" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="战斗面板" type="PanelContainer" parent="战斗界面"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="显示区域" type="HBoxContainer" parent="战斗界面/战斗面板"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="左卡牌" type="PanelContainer" parent="战斗界面/战斗面板/显示区域"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 190)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="回合信息" type="VBoxContainer" parent="战斗界面/战斗面板/显示区域"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+alignment = 1
+
+[node name="回合数" type="Label" parent="战斗界面/战斗面板/显示区域/回合信息"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8352941, 0.69803923, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_evgpt")
+theme_override_font_sizes/font_size = 24
+text = "第一局"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VS图片" type="TextureRect" parent="战斗界面/战斗面板/显示区域/回合信息"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+texture = ExtResource("7_co7ae")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="右卡牌" type="PanelContainer" parent="战斗界面/战斗面板/显示区域"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 190)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="回合计时器" type="Timer" parent="战斗界面"]
+unique_name_in_owner = true
+
+[node name="倒计时" type="Label" parent="战斗界面"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_evgpt")
+theme_override_font_sizes/font_size = 60
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="技能层" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="敌方受击区域" type="Area2D" parent="技能层"]
+position = Vector2(35, 35)
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="区域一" type="CollisionShape2D" parent="技能层/敌方受击区域"]
+visible = false
+position = Vector2(40.5, -1.5)
+shape = SubResource("RectangleShape2D_1dqy4")
+
+[node name="区域二" type="CollisionShape2D" parent="技能层/敌方受击区域"]
+visible = false
+position = Vector2(0.5, 52)
+shape = SubResource("RectangleShape2D_fas1d")
+
+[node name="玩家受击区域" type="Area2D" parent="技能层"]
+position = Vector2(1116, 613)
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="区域一" type="CollisionShape2D" parent="技能层/玩家受击区域"]
+visible = false
+position = Vector2(-1, -41)
+shape = SubResource("RectangleShape2D_k05gi")
+
+[node name="区域二" type="CollisionShape2D" parent="技能层/玩家受击区域"]
+visible = false
+position = Vector2(-54.5, 0)
+shape = SubResource("RectangleShape2D_0tfd1")
+
+[node name="菜单层" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="结束界面" parent="菜单层" instance=ExtResource("8_8q87g")]
+unique_name_in_owner = true
+visible = false
+
+[node name="弃牌界面" parent="菜单层" instance=ExtResource("11_3kssn")]
+unique_name_in_owner = true
+visible = false
+
+[node name="等待页面" parent="菜单层" instance=ExtResource("9_fqdpd")]
+unique_name_in_owner = true
+visible = false

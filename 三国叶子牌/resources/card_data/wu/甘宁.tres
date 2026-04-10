@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bu7xg7t7330qp"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_xjysk"]
+
+[resource]
+script = ExtResource("1_xjysk")
+Name = "甘宁"
+Camp = 3
+Power = 94
+Wisdom = 75
+Skill = "劫营"
+SkillDesc = "你对智力低于你的魏国武将必胜"

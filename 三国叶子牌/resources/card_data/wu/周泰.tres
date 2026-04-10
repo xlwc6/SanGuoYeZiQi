@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://crajmj7yhdwfx"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_db3f8"]
+
+[resource]
+script = ExtResource("1_db3f8")
+Name = "周泰"
+Camp = 3
+Power = 92
+Wisdom = 60
+Skill = "虎臣"
+SkillDesc = "当你战败后，随机抽取一张弃牌堆里的吴国牌"
+Type = 2

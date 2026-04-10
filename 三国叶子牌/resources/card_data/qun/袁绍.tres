@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://brj83vgjv8ym6"]
+
+[ext_resource type="Script" uid="uid://8wpl6prebyyp" path="res://resources/card_data/CardData.cs" id="1_a3ad1"]
+
+[resource]
+script = ExtResource("1_a3ad1")
+Name = "袁绍"
+Power = 79
+Wisdom = 76
+Skill = "望族"
+SkillDesc = "对群雄武将必胜"
+Type = 0
